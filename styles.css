@@ -1105,8 +1105,10 @@ header, main, footer {
 
 .units__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
+    max-width: 1060px;
+    margin: 0 auto;
 }
 
 .unit-card {
@@ -1767,6 +1769,11 @@ header, main, footer {
 
     .whatsapp-hub {
         grid-template-columns: 1fr;
+    }
+
+    .units__grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 540px;
     }
 
     .footer__top {
