@@ -8,11 +8,28 @@
     <title>Jorge Remodelaciones & Acabados | Transformación de Obra Gris de Alta Gama</title>
     <meta name="description" content="Especialistas en la terminación de apartamentos en obra gris con acabados modernos, materiales de alta calidad y garantía por escrito en el Oriente Antioqueño.">
 
-    <!-- Open Graph / Meta -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://jorge-remodelaciones.vercel.app/">
+
+    <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jorge-remodelaciones.vercel.app/">
     <meta property="og:title" content="Jorge Remodelaciones | Acabados de Obra Gris de Lujo">
     <meta property="og:description" content="Convertimos tu obra gris en un hogar listo para habitar con diseño contemporáneo y atención directa.">
-    <meta property="og:image" content="assets/images/kitchen-after.jpg">
+    <meta property="og:image" content="https://jorge-remodelaciones.vercel.app/assets/images/kitchen-after.webp">
+    <meta property="og:image:width" content="1376">
+    <meta property="og:image:height" content="768">
+    <meta property="og:locale" content="es_CO">
+    <meta property="og:site_name" content="Jorge Remodelaciones & Acabados">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jorge Remodelaciones | Acabados de Obra Gris de Lujo">
+    <meta name="twitter:description" content="Convertimos tu obra gris en un hogar listo para habitar con diseño contemporáneo y atención directa.">
+    <meta name="twitter:image" content="https://jorge-remodelaciones.vercel.app/assets/images/kitchen-after.webp">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,6 +59,8 @@
     </script>
 </head>
 <body>
+    <!-- Skip to Content Link (WCAG 2.1 AA) -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
     <!-- Antigravity Interactive Particle Canvas -->
     <div class="particles-container" aria-hidden="true">
@@ -195,7 +214,10 @@
                 <!-- Hero Media Card (High-End Interior Preview) -->
                 <div class="hero__media">
                     <div class="hero__media-wrapper">
-                        <img src="assets/images/kitchen-after.jpg" alt="Acabados de lujo en cocina remodelada" class="hero__img" loading="eager">
+                        <picture>
+                            <source srcset="assets/images/kitchen-after.webp" type="image/webp">
+                            <img src="assets/images/kitchen-after.jpg" alt="Acabados de lujo en cocina remodelada" class="hero__img" loading="eager" width="1376" height="768" decoding="async">
+                        </picture>
                         <div class="hero__media-badge">
                             <span class="badge-icon">✦</span>
                             <div>
@@ -283,12 +305,18 @@
                             <!-- After Image -->
                             <div class="split-layer split-layer--after">
                                 <span class="split-badge split-badge--after">DESPUÉS • TERMINADO</span>
-                                <img src="assets/images/kitchen-after.jpg" alt="Cocina moderna terminada con isla y cuarzo" class="split-img" loading="lazy">
+                                <picture>
+                                    <source srcset="assets/images/kitchen-after.webp" type="image/webp">
+                                    <img src="assets/images/kitchen-after.jpg" alt="Cocina moderna terminada con isla y cuarzo" class="split-img" loading="lazy" width="1376" height="768" decoding="async">
+                                </picture>
                             </div>
                             <!-- Before Image (Clipped) -->
                             <div class="split-layer split-layer--before" data-before-layer style="width: 50%;">
                                 <span class="split-badge split-badge--before">ANTES • OBRA GRIS</span>
-                                <img src="assets/images/kitchen-before.jpg" alt="Cocina en obra gris y ladrillo a la vista" class="split-img" loading="lazy">
+                                <picture>
+                                    <source srcset="assets/images/kitchen-before.webp" type="image/webp">
+                                    <img src="assets/images/kitchen-before.jpg" alt="Cocina en obra gris y ladrillo a la vista" class="split-img" loading="lazy" width="1376" height="768" decoding="async">
+                                </picture>
                             </div>
                             <!-- Divider Drag Handle -->
                             <div class="split-handle" data-split-handle style="left: 50%;">
@@ -318,12 +346,18 @@
                             <!-- After Image -->
                             <div class="split-layer split-layer--after">
                                 <span class="split-badge split-badge--after">DESPUÉS • TERMINADO</span>
-                                <img src="assets/images/bathroom-after.jpg" alt="Baño de lujo terminado con mármol y espejo LED" class="split-img" loading="lazy">
+                                <picture>
+                                    <source srcset="assets/images/bathroom-after.webp" type="image/webp">
+                                    <img src="assets/images/bathroom-after.jpg" alt="Baño de lujo terminado con mármol y espejo LED" class="split-img" loading="lazy" width="1376" height="768" decoding="async">
+                                </picture>
                             </div>
                             <!-- Before Image (Clipped) -->
                             <div class="split-layer split-layer--before" data-before-layer style="width: 50%;">
                                 <span class="split-badge split-badge--before">ANTES • OBRA GRIS</span>
-                                <img src="assets/images/bathroom-before.jpg" alt="Baño en obra gris con tubería expuesta" class="split-img" loading="lazy">
+                                <picture>
+                                    <source srcset="assets/images/bathroom-before.webp" type="image/webp">
+                                    <img src="assets/images/bathroom-before.jpg" alt="Baño en obra gris con tubería expuesta" class="split-img" loading="lazy" width="1376" height="768" decoding="async">
+                                </picture>
                             </div>
                             <!-- Divider Drag Handle -->
                             <div class="split-handle" data-split-handle style="left: 50%;">
@@ -508,7 +542,10 @@
                                 data-src="assets/images/kitchen-after.jpg" 
                                 data-title="Península en cuarzo blanco Calacatta" 
                                 data-desc="Península de cocina en cuarzo con torre de hornos empotrada e iluminación lineal LED cálida.">
-                            <img src="assets/images/kitchen-after.jpg" alt="Península en cuarzo blanco Calacatta" class="gallery-card__img" loading="lazy">
+                            <picture>
+                                <source srcset="assets/images/kitchen-after.webp" type="image/webp">
+                                <img src="assets/images/kitchen-after.jpg" alt="Península en cuarzo blanco Calacatta" class="gallery-card__img" loading="lazy" width="1376" height="768" decoding="async">
+                            </picture>
                             <div class="gallery-card__overlay">
                                 <span class="gallery-card__badge">Cocina</span>
                                 <h3 class="gallery-card__title">Península en cuarzo Calacatta</h3>
@@ -531,7 +568,10 @@
                                 data-src="assets/images/bathroom-after.jpg" 
                                 data-title="Mueble de baño flotante y espejo LED" 
                                 data-desc="Baño con mueble lavamanos flotante en madera tratada, espejo circular retroiluminado y mampara en vidrio.">
-                            <img src="assets/images/bathroom-after.jpg" alt="Mueble de baño flotante y espejo LED" class="gallery-card__img" loading="lazy">
+                            <picture>
+                                <source srcset="assets/images/bathroom-after.webp" type="image/webp">
+                                <img src="assets/images/bathroom-after.jpg" alt="Mueble de baño flotante y espejo LED" class="gallery-card__img" loading="lazy" width="1376" height="768" decoding="async">
+                            </picture>
                             <div class="gallery-card__overlay">
                                 <span class="gallery-card__badge">Baño</span>
                                 <h3 class="gallery-card__title">Mueble de baño flotante & Espejo LED</h3>
@@ -554,7 +594,10 @@
                                 data-src="assets/images/living-room.jpg" 
                                 data-title="Zona social con panel de listones de madera" 
                                 data-desc="Muro de entretenimiento con listones de madera natural, mueble de TV flotante e iluminación indirecta superior.">
-                            <img src="assets/images/living-room.jpg" alt="Zona social con panel de listones" class="gallery-card__img" loading="lazy">
+                            <picture>
+                                <source srcset="assets/images/living-room.webp" type="image/webp">
+                                <img src="assets/images/living-room.jpg" alt="Zona social con panel de listones" class="gallery-card__img" loading="lazy" width="1376" height="768" decoding="async">
+                            </picture>
                             <div class="gallery-card__overlay">
                                 <span class="gallery-card__badge">Social</span>
                                 <h3 class="gallery-card__title">Panel de listones de madera</h3>
@@ -577,7 +620,10 @@
                                 data-src="assets/images/closet.jpg" 
                                 data-title="Walk-in Closet a la medida" 
                                 data-desc="Vestier contemporáneo con isla central de accesorios, zapateras retroiluminadas y cajoneras con freno.">
-                            <img src="assets/images/closet.jpg" alt="Walk-in Closet a la medida" class="gallery-card__img" loading="lazy">
+                            <picture>
+                                <source srcset="assets/images/closet.webp" type="image/webp">
+                                <img src="assets/images/closet.jpg" alt="Walk-in Closet a la medida" class="gallery-card__img" loading="lazy" width="1376" height="768" decoding="async">
+                            </picture>
                             <div class="gallery-card__overlay">
                                 <span class="gallery-card__badge">Clóset</span>
                                 <h3 class="gallery-card__title">Walk-in Closet a la medida</h3>
@@ -741,7 +787,10 @@
                     <!-- Left: Portrait Photo with Architectural Badge -->
                     <div class="about__media">
                         <div class="about__img-wrapper">
-                            <img src="assets/images/profile.jpg" alt="Jorge — Fundador de Jorge Remodelaciones" class="about__img" loading="lazy">
+                            <picture>
+                                <source srcset="assets/images/profile.webp" type="image/webp">
+                                <img src="assets/images/profile.jpg" alt="Jorge — Fundador de Jorge Remodelaciones" class="about__img" loading="lazy" width="896" height="1200" decoding="async">
+                            </picture>
                         </div>
                         <div class="about__badge">
                             <span class="about__badge-number">8+</span>
@@ -874,7 +923,10 @@
                     <div class="advisor-card">
                         <div class="advisor-card__top">
                             <div class="advisor-avatar-wrap">
-                                <img src="assets/images/alejandra.jpg" alt="Alejandra Arbeláez — Asesora Comercial" class="advisor-avatar">
+                                <picture>
+                                    <source srcset="assets/images/alejandra.webp" type="image/webp">
+                                    <img src="assets/images/alejandra.jpg" alt="Alejandra Arbeláez — Asesora Comercial" class="advisor-avatar" loading="lazy" width="1024" height="1024" decoding="async">
+                                </picture>
                                 <span class="advisor-online-badge" title="Disponible ahora"></span>
                             </div>
                             <div class="advisor-info">
