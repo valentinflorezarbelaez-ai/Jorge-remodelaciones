@@ -154,6 +154,13 @@ function initMobileNav() {
             mainNav.classList.remove('is-open');
         });
     });
+
+    document.addEventListener('click', (e) => {
+        if (!mainNav.contains(e.target) && !navToggle.contains(e.target) && mainNav.classList.contains('is-open')) {
+            navToggle.setAttribute('aria-expanded', 'false');
+            mainNav.classList.remove('is-open');
+        }
+    });
 }
 
 /* --------------------------------------------------------------------------
