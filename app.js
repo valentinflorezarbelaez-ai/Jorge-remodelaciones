@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryFilter();
     initLightbox();
     initFloatingWhatsApp();
+    initParticles();
+    initMetricCounters();
 });
 
 /* --------------------------------------------------------------------------
@@ -17,6 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function initParticles() {
     const canvas = document.getElementById('particles-canvas');
     if (!canvas) return;
+
+    // Respect prefers-reduced-motion for vestibular health
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
@@ -304,13 +311,20 @@ function initLightbox() {
 
     if (!lightbox || !lightboxImg) return;
 
+    let lastFocusedElement = null;
+
     const openModal = (src, title, desc) => {
+        lastFocusedElement = document.activeElement;
         lightboxImg.src = src;
+        lightboxImg.alt = title || 'Vista ampliada del proyecto';
         lightboxTitle.textContent = title || '';
         lightboxDesc.textContent = desc || '';
         lightbox.classList.add('is-open');
         lightbox.setAttribute('aria-hidden', 'false');
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
         document.body.style.overflow = 'hidden';
+        closeBtn?.focus();
     };
 
     const closeModal = () => {
@@ -320,6 +334,7 @@ function initLightbox() {
         setTimeout(() => {
             lightboxImg.src = '';
         }, 300);
+        lastFocusedElement?.focus();
     };
 
     triggers.forEach(trigger => {
