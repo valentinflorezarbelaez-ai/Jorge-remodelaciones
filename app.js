@@ -25,9 +25,9 @@ function initParticles() {
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
 
-    const particleCount = Math.min(Math.floor(width * 0.035), 45);
+    const particleCount = Math.min(Math.floor(width * 0.025), 32);
     const particles = [];
-    const colors = ['#3279F9', '#38BDF8', '#818CF8', '#A855F7', '#F59E0B', '#34D399', '#FFFFFF'];
+    const colors = ['#FFFFFF', '#E2E8F0', '#94A3B8', '#3B82F6'];
 
     let mouseX = width / 2;
     let mouseY = height / 2;
@@ -36,11 +36,11 @@ function initParticles() {
         particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.35,
-            vy: (Math.random() - 0.5) * 0.35,
-            size: Math.random() * 1.8 + 0.8,
-            baseAlpha: Math.random() * 0.4 + 0.15,
-            alpha: Math.random() * 0.4 + 0.15,
+            vx: (Math.random() - 0.5) * 0.22,
+            vy: (Math.random() - 0.5) * 0.22,
+            size: Math.random() * 1.6 + 0.8,
+            baseAlpha: Math.random() * 0.35 + 0.12,
+            alpha: Math.random() * 0.35 + 0.12,
             color: colors[Math.floor(Math.random() * colors.length)]
         });
     }
