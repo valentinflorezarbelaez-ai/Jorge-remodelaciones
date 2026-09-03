@@ -3,10 +3,8 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initParticles();
     initHeaderScroll();
     initMobileNav();
-    initMetricCounters();
     initSplitSliders();
     initGalleryFilter();
     initLightbox();

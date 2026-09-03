@@ -536,14 +536,13 @@ header, main, footer {
 .hero__benefits {
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
     width: 100%;
     background: rgba(17, 21, 32, 0.65);
     border: 1px solid var(--border-subtle);
     border-radius: 14px;
-    padding: 1rem 1.15rem;
+    padding: 1.15rem 1rem;
     margin-bottom: 1.5rem;
-    text-align: left;
+    align-items: center;
 }
 
 .benefit-item {
@@ -552,6 +551,10 @@ header, main, footer {
     gap: 0.65rem;
     font-size: 0.84rem;
     color: var(--text-primary);
+    text-align: left;
+    width: 270px;
+    max-width: 100%;
+    margin: 0.35rem auto;
 }
 
 .benefit-icon {
@@ -689,24 +692,30 @@ header, main, footer {
 .trust-bar__grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.5rem;
+    max-width: 350px;
+    margin: 0 auto;
 }
 
 .trust-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.85rem;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
 }
 
 .trust-item__icon {
     color: #60A5FA;
-    flex-shrink: 0;
+    margin: 0 auto;
 }
 
 .trust-item__text {
     font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.4;
+    text-align: center;
 }
 
 .trust-divider {
@@ -876,6 +885,9 @@ header, main, footer {
     grid-template-columns: 1fr;
     gap: 1.75rem;
     margin-bottom: 2.5rem;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .package-card {
@@ -885,6 +897,8 @@ header, main, footer {
     padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     justify-content: space-between;
     position: relative;
 }
@@ -914,6 +928,7 @@ header, main, footer {
     font-size: 1.35rem;
     font-weight: 800;
     margin-bottom: 0.25rem;
+    text-align: center;
 }
 
 .package-card__tagline {
@@ -921,6 +936,7 @@ header, main, footer {
     font-size: 0.75rem;
     color: #93C5FD;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 .package-card__desc {
@@ -928,6 +944,7 @@ header, main, footer {
     font-size: 0.9rem;
     line-height: 1.55;
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .package-card__features {
@@ -935,6 +952,8 @@ header, main, footer {
     flex-direction: column;
     gap: 0.65rem;
     margin-bottom: 1.75rem;
+    width: 100%;
+    align-items: center;
 }
 
 .package-card__features li {
@@ -943,6 +962,10 @@ header, main, footer {
     display: flex;
     align-items: flex-start;
     gap: 0.6rem;
+    text-align: left;
+    width: 270px;
+    max-width: 100%;
+    margin: 0.25rem auto;
 }
 
 .package-card__features li::before {
@@ -1220,6 +1243,9 @@ header, main, footer {
     grid-template-columns: 1fr;
     gap: 1.25rem;
     margin-bottom: 2.5rem;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .process-card {
@@ -1227,6 +1253,10 @@ header, main, footer {
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .process-card__number {
@@ -1235,17 +1265,20 @@ header, main, footer {
     font-weight: 800;
     color: #60A5FA;
     margin-bottom: 0.75rem;
+    text-align: center;
 }
 
 .process-card__title {
     font-size: 1.05rem;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .process-card__text {
     font-size: 0.85rem;
     color: var(--text-secondary);
     line-height: 1.5;
+    text-align: center;
 }
 
 .process__cta {
@@ -1329,6 +1362,7 @@ header, main, footer {
     font-size: clamp(1.6rem, 5vw, 2.4rem);
     margin-bottom: 1.25rem;
     line-height: 1.2;
+    text-align: center;
 }
 
 .about__text {
@@ -1339,6 +1373,7 @@ header, main, footer {
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
+    text-align: center;
 }
 
 .about__pillars {
@@ -1346,34 +1381,43 @@ header, main, footer {
     grid-template-columns: 1fr;
     gap: 1.25rem;
     margin-bottom: 2rem;
+    width: 100%;
 }
 
 .pillar-item {
     display: flex;
-    gap: 0.85rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
 }
 
 .pillar-icon {
     color: #60A5FA;
-    flex-shrink: 0;
+    margin: 0 auto;
 }
 
 .pillar-title {
     font-size: 0.95rem;
     font-weight: 700;
     margin-bottom: 0.2rem;
+    text-align: center;
 }
 
 .pillar-text {
     font-size: 0.82rem;
     color: var(--text-secondary);
+    text-align: center;
 }
 
 .about__signature {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     border-top: 1px solid var(--border-subtle);
     padding-top: 1rem;
+    width: 100%;
 }
 
 .sig-name {
@@ -1400,6 +1444,9 @@ header, main, footer {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .testimonial-card {
@@ -1409,14 +1456,18 @@ header, main, footer {
     padding: 1.75rem 1.25rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     justify-content: space-between;
 }
 
 .testimonial-card__header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
     margin-bottom: 1.25rem;
+    width: 100%;
 }
 
 .verified-badge {
@@ -1439,17 +1490,28 @@ header, main, footer {
     color: var(--text-primary);
     font-style: italic;
     margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.testimonial-card__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
 .testimonial-card__author strong {
     display: block;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 .testimonial-card__author span {
     font-size: 0.75rem;
     color: #94A3B8;
     font-family: var(--font-mono);
+    text-align: center;
 }
 
 /* ==========================================================================
@@ -1464,6 +1526,8 @@ header, main, footer {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+    max-width: 350px;
+    margin: 0 auto;
 }
 
 .advisor-card {
@@ -1472,6 +1536,10 @@ header, main, footer {
     border-radius: var(--radius-lg);
     padding: 1.75rem 1.25rem;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .advisor-card__top {
@@ -1493,6 +1561,7 @@ header, main, footer {
     background: var(--bg-surface);
     flex-shrink: 0;
     box-shadow: 0 0 16px rgba(37, 99, 235, 0.35);
+    margin: 0 auto;
 }
 
 .advisor-avatar {
@@ -1517,6 +1586,7 @@ header, main, footer {
 .advisor-status {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.45rem;
     font-family: var(--font-mono);
     font-size: 0.7rem;
@@ -1530,12 +1600,6 @@ header, main, footer {
     height: 6px;
     background-color: #22c55e;
     border-radius: 50%;
-    animation: pulseGlow 2s infinite ease-in-out;
-}
-
-@keyframes pulseGlow {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.3); opacity: 0.6; }
 }
 
 .advisor-name {
@@ -1543,6 +1607,7 @@ header, main, footer {
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1.2;
+    text-align: center;
 }
 
 .advisor-role {
@@ -1550,6 +1615,7 @@ header, main, footer {
     font-size: 0.75rem;
     color: #93C5FD;
     display: block;
+    text-align: center;
 }
 
 .advisor-bio {
@@ -1558,10 +1624,12 @@ header, main, footer {
     line-height: 1.55;
     font-style: italic;
     background: rgba(8, 12, 20, 0.6);
-    border-left: 2px solid #60A5FA;
+    border: 1px solid var(--border-subtle);
     padding: 0.75rem 1rem;
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    border-radius: var(--radius-sm);
     margin-bottom: 1.5rem;
+    text-align: center;
+    width: 100%;
 }
 
 .whatsapp-hub__btn {
@@ -1574,6 +1642,7 @@ header, main, footer {
 .whatsapp-options {
     border-top: 1px solid var(--border-subtle);
     padding-top: 1.5rem;
+    width: 100%;
 }
 
 .options-title {
@@ -1585,12 +1654,14 @@ header, main, footer {
     letter-spacing: 0.1em;
     display: block;
     margin-bottom: 0.85rem;
+    text-align: center;
 }
 
 .options-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0.65rem;
+    width: 100%;
 }
 
 .option-chip {
@@ -1600,9 +1671,12 @@ header, main, footer {
     padding: 0.7rem 0.85rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 0.6rem;
     font-size: 0.8rem;
     color: var(--text-primary);
+    width: 100%;
 }
 
 .chip-icon {
@@ -1614,6 +1688,9 @@ header, main, footer {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
 }
 
 .detail-card {
@@ -1622,14 +1699,16 @@ header, main, footer {
     border-radius: var(--radius-md);
     padding: 1.25rem;
     display: flex;
-    align-items: flex-start;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    width: 100%;
 }
 
 .detail-icon {
     color: #60A5FA;
-    flex-shrink: 0;
-    padding-top: 2px;
+    margin: 0 auto;
 }
 
 .detail-label {
@@ -1640,18 +1719,21 @@ header, main, footer {
     letter-spacing: 0.08em;
     display: block;
     margin-bottom: 0.2rem;
+    text-align: center;
 }
 
 .detail-val {
     font-size: 0.98rem;
     color: #FFFFFF;
     display: block;
+    text-align: center;
 }
 
 .detail-sub {
     font-size: 0.75rem;
     color: var(--text-muted);
     margin-top: 0.15rem;
+    text-align: center;
 }
 
 /* ==========================================================================
@@ -1704,18 +1786,6 @@ header, main, footer {
     transform: scale(0.92);
 }
 
-.floating-whatsapp__pulse {
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    width: 14px;
-    height: 14px;
-    background-color: #22c55e;
-    border: 2px solid #06080D;
-    border-radius: 50%;
-    animation: pulseGlow 1.8s infinite;
-}
-
 .floating-whatsapp__text {
     display: none;
 }
@@ -1732,13 +1802,19 @@ header, main, footer {
 .footer__top {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 2.25rem;
     margin-bottom: 2.5rem;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer__logo {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.65rem;
     margin-bottom: 1rem;
 }
@@ -1775,12 +1851,14 @@ header, main, footer {
     font-size: 0.85rem;
     color: var(--text-muted);
     line-height: 1.6;
+    text-align: center;
 }
 
 .footer__team {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    width: 100%;
 }
 
 .team-card {
@@ -1790,7 +1868,9 @@ header, main, footer {
     padding: 0.75rem 1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.85rem;
+    text-align: center;
 }
 
 .team-card__avatar {
@@ -1809,6 +1889,14 @@ header, main, footer {
     font-weight: 700;
 }
 
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
 .footer__links-title {
     font-family: var(--font-heading);
     font-weight: 700;
@@ -1816,12 +1904,15 @@ header, main, footer {
     display: block;
     margin-bottom: 0.85rem;
     color: #FFFFFF;
+    text-align: center;
 }
 
 .footer__links ul {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.6rem;
+    text-align: center;
 }
 
 .footer__links a {
@@ -1836,6 +1927,7 @@ header, main, footer {
 .footer__bottom {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 0.85rem;
     padding-top: 1.5rem;
     border-top: 1px solid var(--border-subtle);
@@ -2094,6 +2186,185 @@ header, main, footer {
 
     .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .packages__grid {
+        max-width: none;
+    }
+
+    .package-card {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .package-card__title,
+    .package-card__tagline,
+    .package-card__desc {
+        text-align: left;
+    }
+
+    .package-card__features {
+        align-items: flex-start;
+    }
+
+    .package-card__features li {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .process__grid {
+        max-width: none;
+    }
+
+    .process-card {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .process-card__number,
+    .process-card__title,
+    .process-card__text {
+        text-align: left;
+    }
+
+    .testimonials__grid {
+        max-width: none;
+    }
+
+    .testimonial-card {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .testimonial-card__header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .testimonial-card__quote,
+    .testimonial-card__author {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .testimonial-card__author strong,
+    .testimonial-card__author span {
+        text-align: left;
+    }
+
+    .about__content {
+        align-items: flex-start;
+        text-align: left;
+        max-width: none;
+    }
+
+    .about__title,
+    .about__text {
+        text-align: left;
+    }
+
+    .pillar-item {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .pillar-icon {
+        margin: 0;
+    }
+
+    .pillar-title,
+    .pillar-text {
+        text-align: left;
+    }
+
+    .about__signature {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .whatsapp-hub {
+        max-width: none;
+    }
+
+    .advisor-card {
+        align-items: stretch;
+        text-align: left;
+    }
+
+    .advisor-card__top {
+        text-align: left;
+    }
+
+    .advisor-name,
+    .advisor-role,
+    .advisor-bio {
+        text-align: left;
+    }
+
+    .options-title {
+        text-align: left;
+    }
+
+    .option-chip {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .whatsapp-details {
+        max-width: none;
+    }
+
+    .detail-card {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .detail-icon {
+        margin: 0;
+    }
+
+    .detail-label,
+    .detail-val,
+    .detail-sub {
+        text-align: left;
+    }
+
+    .footer__top {
+        align-items: flex-start;
+        text-align: left;
+        max-width: none;
+    }
+
+    .footer__logo {
+        justify-content: flex-start;
+    }
+
+    .footer__brand-desc {
+        text-align: left;
+    }
+
+    .team-card {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .footer__links {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer__links-title,
+    .footer__links ul {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer__bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
     }
 
     /* Floating WhatsApp widget stays compact in bottom-right corner */
