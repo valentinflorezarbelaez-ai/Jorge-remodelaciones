@@ -1,0 +1,7 @@
+# robots.txt for Jorge Remodelaciones & Acabados
+# Canonical domain: https://jorge-remodelaciones.vercel.app/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://jorge-remodelaciones.vercel.app/sitemap.xml
