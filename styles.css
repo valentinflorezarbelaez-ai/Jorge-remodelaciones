@@ -461,7 +461,13 @@ header, main, footer {
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-secondary);
-    padding: 0.35rem 0;
+    padding: 0.75rem 1rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
 .header__link:hover {
@@ -491,6 +497,8 @@ header, main, footer {
     align-items: center;
     justify-content: center;
     -webkit-tap-highlight-color: transparent;
+    position: relative;
+    z-index: 110;
 }
 
 .toggle-bar {
@@ -498,7 +506,21 @@ header, main, footer {
     height: 2px;
     background-color: #FFFFFF;
     border-radius: 2px;
-    transition: var(--transition-fast);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    transform-origin: center;
+}
+
+.header__toggle[aria-expanded="true"] .toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.header__toggle[aria-expanded="true"] .toggle-bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.header__toggle[aria-expanded="true"] .toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -564,10 +586,10 @@ header, main, footer {
 }
 
 .hero__title {
-    font-size: 1.8rem;
+    font-size: clamp(1.75rem, 6vw, 2.85rem);
     letter-spacing: -0.03em;
     font-weight: 800;
-    line-height: 1.25;
+    line-height: 1.22;
     margin-bottom: 1rem;
     text-align: center;
     width: 100%;
@@ -602,8 +624,8 @@ header, main, footer {
     font-size: 0.84rem;
     color: var(--text-primary);
     text-align: left;
-    width: 270px;
-    max-width: 100%;
+    width: 100%;
+    max-width: 280px;
     margin: 0.35rem auto;
 }
 
@@ -741,9 +763,9 @@ header, main, footer {
 
 .trust-bar__grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 350px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+    max-width: 480px;
     margin: 0 auto;
 }
 
@@ -935,7 +957,8 @@ header, main, footer {
     grid-template-columns: 1fr;
     gap: 1.75rem;
     margin-bottom: 2.5rem;
-    max-width: 350px;
+    width: 100%;
+    max-width: 420px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1085,12 +1108,16 @@ header, main, footer {
     color: var(--text-secondary);
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 0.82rem;
-    padding: 0.5rem 1.1rem;
+    font-size: 0.86rem;
+    padding: 0.55rem 1.25rem;
     border-radius: var(--radius-full);
     cursor: pointer;
     white-space: nowrap;
-    min-height: 40px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .filter-btn.is-active {
@@ -2065,6 +2092,12 @@ header, main, footer {
         min-height: 38px;
     }
 
+    .packages__grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: none;
+        align-items: stretch;
+    }
+
     .ba-slider-list {
         grid-template-columns: 1fr 1fr;
     }
@@ -2427,4 +2460,12 @@ header, main, footer {
         transform: translateY(-3px) scale(1.03);
         box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
     }
+}
+
+/* Touch Active Feedback Ergonomics */
+button:active,
+.btn:active,
+.filter-btn:active,
+.unit-card:active {
+    transform: scale(0.97);
 }
