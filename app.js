@@ -56,6 +56,22 @@ function initParticles() {
         mouseY = e.clientY;
     });
 
+    // On mobile devices, draw static stars once and do not run animation loop (prevents movement/jitter)
+    if (window.innerWidth < 768) {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < Math.min(particles.length, 18); i++) {
+            const p = particles[i];
+            ctx.save();
+            ctx.globalAlpha = 0.22;
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+        return;
+    }
+
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
