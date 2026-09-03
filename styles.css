@@ -109,6 +109,56 @@ ul {
     list-style: none;
 }
 
+/* ==========================================================================
+   ACCESSIBILITY & FOCUS VISIBILITY (WCAG 2.1 AA)
+   ========================================================================== */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    background: var(--corp-blue-light);
+    color: #FFFFFF;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 0.9rem;
+    z-index: 10000;
+    text-decoration: none;
+    transition: top var(--transition-fast);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.skip-link:focus {
+    top: 1rem;
+    outline: 2px solid #FFFFFF;
+    outline-offset: 3px;
+}
+
+:focus-visible {
+    outline: 2px solid var(--corp-blue-hover);
+    outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--corp-blue-hover);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .particles-container {
+        display: none !important;
+    }
+}
+
 .text-gold {
     color: #60A5FA;
     background: var(--gradient-hero-text);
