@@ -27,7 +27,7 @@ function initParticles() {
 
     const particleCount = Math.min(Math.floor(width * 0.035), 45);
     const particles = [];
-    const colors = ['#FFFFFF', '#F4F4F5', '#E4E4E7', '#A1A1AA'];
+    const colors = ['#3279F9', '#38BDF8', '#818CF8', '#A855F7', '#F59E0B', '#34D399', '#FFFFFF'];
 
     let mouseX = width / 2;
     let mouseY = height / 2;
