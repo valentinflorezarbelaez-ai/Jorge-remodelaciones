@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSplitSliders();
     initGalleryFilter();
     initLightbox();
+    initFloatingWhatsApp();
 });
 
 /* --------------------------------------------------------------------------
@@ -325,6 +326,26 @@ function initLightbox() {
             closeModal();
         }
     });
+}
+
+/* --------------------------------------------------------------------------
+   8. Floating WhatsApp Scroll Visibility Controller
+   -------------------------------------------------------------------------- */
+function initFloatingWhatsApp() {
+    const fab = document.querySelector('.floating-whatsapp');
+    if (!fab) return;
+
+    const handleScroll = () => {
+        // Only show floating button after user scrolls past the Hero buttons (320px)
+        if (window.scrollY > 320) {
+            fab.classList.add('is-visible');
+        } else {
+            fab.classList.remove('is-visible');
+        }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 }
 
 
