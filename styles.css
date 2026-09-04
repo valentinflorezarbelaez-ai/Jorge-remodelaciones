@@ -1,5 +1,5 @@
 /* ==========================================================================
-   JV Construcciones • Reformas y Acabados (Respaldo Legal HACY) — Stylesheet
+   JV Construcciones • Reformas y Acabados — Stylesheet
    Architecture: Mobile-First Responsive Design System
    Palette: Architectural Graphite, Matte Anthracite & Construction Gold
    ========================================================================== */
@@ -285,7 +285,7 @@ header, main, footer {
 }
 
 .btn--secondary:hover {
-    background: rgba(245, 158, 11, 0.1);
+    background: rgba(197, 160, 89, 0.12);
     border-color: var(--border-accent);
     color: #FFFFFF;
 }
@@ -935,7 +935,7 @@ header, main, footer {
     align-items: center;
     justify-content: center;
     color: #F3E1B8;
-    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.40);
 }
 
 .split-range-input {
@@ -2553,12 +2553,12 @@ button:active,
     text-transform: uppercase;
 }
 
-.brand-hacy-seal {
+.brand-guarantee-seal {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(245, 158, 11, 0.1);
-    border: 1px solid rgba(245, 158, 11, 0.4);
+    background: rgba(197, 160, 89, 0.12);
+    border: 1px solid rgba(197, 160, 89, 0.40);
     color: #F3E1B8;
     font-size: 0.72rem;
     font-weight: 700;
@@ -2574,9 +2574,9 @@ button:active,
     padding: 18px 24px;
     background: #182026;
     border-left: 5px solid #C5A059;
-    border-right: 1px solid rgba(245, 158, 11, 0.2);
-    border-top: 1px solid rgba(245, 158, 11, 0.2);
-    border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+    border-right: 1px solid rgba(197, 160, 89, 0.20);
+    border-top: 1px solid rgba(197, 160, 89, 0.20);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.20);
     border-radius: var(--radius-md);
     margin: 24px 0;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
