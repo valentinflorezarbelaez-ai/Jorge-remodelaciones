@@ -358,6 +358,8 @@ header, main, footer {
 
 .header__inner {
     width: 100%;
+    max-width: var(--container-wide);
+    margin: 0 auto;
     background: rgba(11, 14, 21, 0.92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -2084,11 +2086,12 @@ header, main, footer {
 
     .header__links {
         flex-direction: row;
-        gap: 1.5rem;
+        gap: 1.75rem;
     }
 
     .header__link {
-        font-size: 0.84rem;
+        font-size: 0.82rem;
+        letter-spacing: 0.08em;
         padding: 0;
     }
 
@@ -2484,7 +2487,7 @@ button:active,
 /* Top Legal Bar */
 .top-legal-bar {
     background: #0B0E13;
-    border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.25);
     padding: 6px 16px;
     font-size: 0.78rem;
     font-weight: 700;
