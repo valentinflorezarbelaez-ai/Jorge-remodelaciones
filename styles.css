@@ -349,11 +349,12 @@ header, main, footer {
    ========================================================================== */
 .header {
     position: fixed;
-    top: 0.75rem;
+    top: 2.85rem;
     left: 0;
     width: 100%;
-    z-index: 100;
+    z-index: 1000;
     padding: 0 1rem;
+    transition: top 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header__inner {
@@ -370,6 +371,10 @@ header, main, footer {
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.header.is-scrolled {
+    top: 0.75rem;
 }
 
 .header.is-scrolled .header__inner {
@@ -537,7 +542,7 @@ header, main, footer {
    ========================================================================== */
 .hero {
     min-height: auto;
-    padding-top: 5.5rem;
+    padding-top: 8.5rem;
     padding-bottom: 2.75rem;
     position: relative;
     overflow: hidden;
@@ -2500,7 +2505,7 @@ button:active,
     justify-content: center;
     gap: 8px;
     position: relative;
-    z-index: 1001;
+    z-index: 999;
 }
 
 .top-legal-bar span.badge-gold {
@@ -2518,11 +2523,12 @@ button:active,
     align-items: center;
     gap: 10px;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .brand-jv-monogram {
     font-family: 'Oswald', 'Google Sans', sans-serif;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 800;
     color: #FFFFFF;
     line-height: 1;
@@ -2535,24 +2541,25 @@ button:active,
 .brand-jv-text {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     line-height: 1.1;
 }
 
 .brand-jv-main {
     font-family: 'Oswald', 'Google Sans', sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: #FFFFFF;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
 }
 
 .brand-jv-sub {
     font-family: 'Oswald', 'Google Sans', sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: #C5A059;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
 }
 
