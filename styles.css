@@ -46,11 +46,12 @@
     --font-editorial: 'DM Serif Display', serif;
 
     /* Layout & Geometry */
-    --container-max: 1200px;
-    --container-wide: 1340px;
+    --container-max: 1440px;
+    --container-wide: 1620px;
+    --container-panoramic: 1760px;
     --radius-sm: 8px;
     --radius-md: 14px;
-    --radius-lg: 20px;
+    --radius-lg: 22px;
     --radius-full: 9999px;
 
     /* Transitions */
@@ -79,16 +80,18 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.65;
     overflow-x: hidden;
     position: relative;
     -webkit-font-smoothing: antialiased;
-    /* Subtle Technical Blueprint Grid */
+    /* Subtle Technical Blueprint Grid with Atmospheric Vignette Depth */
     background-image: 
+        radial-gradient(circle at 50% 28%, transparent 35%, rgba(5, 7, 10, 0.72) 100%),
         radial-gradient(rgba(197, 160, 89, 0.05) 1px, transparent 1px),
         linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-    background-size: 32px 32px;
+    background-size: 100% 100%, 32px 32px, 32px 32px, 32px 32px;
+    background-attachment: fixed, scroll, scroll, scroll;
 }
 
 /* Typography Utilities */
@@ -307,7 +310,7 @@ header, main, footer {
 
 /* Shared Section Headers */
 .section-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: clamp(2.5rem, 4.5vw, 4rem);
 }
 
 .section-label {
@@ -320,28 +323,28 @@ header, main, footer {
     letter-spacing: 0.14em;
     color: #93C5FD;
     text-transform: uppercase;
-    margin-bottom: 0.65rem;
-    padding: 0.25rem 0.75rem;
+    margin-bottom: 0.75rem;
+    padding: 0.3rem 0.85rem;
     background: rgba(245, 158, 11, 0.08);
     border: 1px solid var(--border-accent);
     border-radius: var(--radius-full);
 }
 
 .section-title {
-    font-size: clamp(1.65rem, 5.5vw, 2.75rem);
+    font-size: clamp(1.85rem, 3.8vw, 3rem);
     font-weight: 800;
-    letter-spacing: -0.03em;
-    margin-bottom: 0.85rem;
-    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+    line-height: 1.18;
 }
 
 .section-subtitle {
     color: var(--text-secondary);
-    font-size: 0.95rem;
-    max-width: 650px;
+    font-size: 1rem;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 /* ==========================================================================
@@ -723,13 +726,20 @@ header, main, footer {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.85), 0 0 35px -8px rgba(197, 160, 89, 0.2);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero__media-wrapper:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 35px 85px -15px rgba(0, 0, 0, 0.9), 0 0 45px 0 rgba(197, 160, 89, 0.35);
 }
 
 .hero__img {
     width: 100%;
-    aspect-ratio: 4/3;
+    aspect-ratio: 16/9;
+    max-height: 520px;
     object-fit: cover;
 }
 
@@ -812,7 +822,7 @@ header, main, footer {
    BEFORE & AFTER SPLIT SLIDERS (Touch-Enabled Mobile-First)
    ========================================================================== */
 .before-after {
-    padding: 4.5rem 0;
+    padding: clamp(5rem, 7vw, 7.5rem) 0;
 }
 
 .ba-slider-list {
@@ -827,7 +837,13 @@ header, main, footer {
     border-radius: var(--radius-lg);
     overflow: hidden;
     padding: 1.25rem;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.75), 0 0 1px 1px rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.ba-slider-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(197, 160, 89, 0.4);
 }
 
 .ba-slider-card__header {
@@ -838,7 +854,7 @@ header, main, footer {
 }
 
 .ba-slider-card__title {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 700;
 }
 
@@ -851,12 +867,13 @@ header, main, footer {
 .split-slider {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/11;
+    aspect-ratio: 16/9;
     border-radius: var(--radius-md);
     overflow: hidden;
     user-select: none;
     -webkit-user-select: none;
     touch-action: pan-y;
+    container-type: inline-size;
 }
 
 .split-layer {
@@ -877,11 +894,28 @@ header, main, footer {
     border-right: 2px solid #F3E1B8;
 }
 
-.split-img {
+.split-layer--before picture,
+.split-layer--after picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.split-layer--before .split-img {
+    width: 100cqi;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    display: block;
+}
+
+.split-layer--after .split-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     pointer-events: none;
+    display: block;
 }
 
 .split-badge {
@@ -2158,18 +2192,23 @@ header, main, footer {
 @media (min-width: 1024px) {
     .container {
         max-width: var(--container-max);
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: clamp(2rem, 3.5vw, 3.5rem);
+        padding-right: clamp(2rem, 3.5vw, 3.5rem);
     }
 
     .container--wide {
         max-width: var(--container-wide);
     }
 
+    .hero {
+        padding-top: clamp(6.25rem, 8.5vh, 7.5rem);
+        padding-bottom: clamp(2.5rem, 4vh, 3.5rem);
+    }
+
     .hero__container {
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 3.5rem;
+        grid-template-columns: 1.12fr 0.88fr;
+        gap: clamp(2.5rem, 4vw, 4rem);
         align-items: center;
         text-align: left;
     }
@@ -2182,23 +2221,26 @@ header, main, footer {
     }
 
     .hero__badge {
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 1.25rem 0;
     }
 
     .hero__title {
+        font-size: clamp(2.2rem, 3.2vw, 3.15rem);
+        line-height: 1.15;
         text-align: left;
     }
 
     .hero__subtitle {
         text-align: left;
-        margin: 0 0 2rem 0;
-        max-width: 540px;
+        margin: 0 0 1.75rem 0;
+        max-width: 580px;
+        font-size: 0.98rem;
     }
 
     .hero__benefits {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        margin: 0 0 2.5rem 0;
+        margin: 0 0 2rem 0;
         max-width: none;
         width: auto;
         background: transparent;
@@ -2207,7 +2249,7 @@ header, main, footer {
     }
 
     .hero__actions {
-        margin: 0 0 3.25rem 0;
+        margin: 0 0 2.5rem 0;
         max-width: none;
         align-items: flex-start;
         width: auto;
@@ -2250,13 +2292,19 @@ header, main, footer {
         background-color: var(--border-subtle);
     }
 
+    .ba-slider-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: clamp(1.5rem, 2.5vw, 2.5rem);
+    }
+
     .packages__grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
     .units__grid {
         grid-template-columns: repeat(4, 1fr);
-        max-width: 1060px;
+        max-width: 100%;
+        gap: 1.25rem;
         margin: 0 auto;
     }
 
@@ -2283,7 +2331,8 @@ header, main, footer {
     }
 
     .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 
     .packages__grid {
@@ -2477,6 +2526,37 @@ header, main, footer {
     }
 }
 
+/* 4. Ultra-Wide & Panoramic Monitors (>= 1280px & >= 1440px) */
+@media (min-width: 1280px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    }
+
+    .soluciones-list {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 1440px) {
+    .hero__container {
+        gap: 4.5rem;
+    }
+
+    .hero__title {
+        font-size: 3.25rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.05rem;
+        max-width: 620px;
+    }
+
+    .ba-slider-card {
+        padding: 1.5rem;
+    }
+}
+
 /* Touch Active Feedback Ergonomics */
 button:active,
 .btn:active,
@@ -2617,11 +2697,11 @@ button:active,
 .soluciones-card-container {
     background: #FFFFFF;
     color: #11161B;
-    border-radius: 24px;
-    padding: 42px 38px;
-    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(197, 160, 89, 0.25);
+    border-radius: 28px;
+    padding: clamp(2.25rem, 4.5vw, 3.75rem);
+    box-shadow: 0 30px 65px -10px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(197, 160, 89, 0.25);
     border-bottom: 6px solid #C5A059;
-    max-width: 960px;
+    max-width: var(--container-max);
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -2988,7 +3068,7 @@ button:active,
 /* Slogan Bar */
 .slogan-architectural {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 2.5px;
     color: #E5C378;
@@ -2996,6 +3076,18 @@ button:active,
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.hero .slogan-architectural {
+    font-size: 0.88rem;
+    letter-spacing: 2.5px;
+    margin: 6px 0 16px 0 !important;
+    opacity: 0.95;
+    background: rgba(197, 160, 89, 0.08);
+    border: 1px solid rgba(197, 160, 89, 0.28);
+    padding: 4px 14px;
+    border-radius: 9999px;
+    width: fit-content;
 }
 
 .slogan-architectural span.dot {

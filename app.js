@@ -259,6 +259,18 @@ function initSplitSliders() {
 
         if (!beforeLayer || !handle || !rangeInput) return;
 
+        const syncBeforeImageWidth = () => {
+            const width = slider.offsetWidth;
+            const beforeImg = beforeLayer.querySelector('.split-img');
+            if (beforeImg && width > 0) {
+                beforeImg.style.width = `${width}px`;
+                beforeImg.style.maxWidth = 'none';
+            }
+        };
+
+        syncBeforeImageWidth();
+        window.addEventListener('resize', syncBeforeImageWidth, { passive: true });
+
         const updatePosition = (val) => {
             const percent = `${val}%`;
             beforeLayer.style.width = percent;
