@@ -1,7 +1,7 @@
-# robots.txt for Jorge Remodelaciones & Acabados
-# Canonical domain: https://jorge-remodelaciones.vercel.app/
+# robots.txt for JV Construcciones • Reformas y Acabados
+# Canonical domain: https://jvconstrucciones.vercel.app/
 
 User-agent: *
 Allow: /
 
-Sitemap: https://jorge-remodelaciones.vercel.app/sitemap.xml
+Sitemap: https://jvconstrucciones.vercel.app/sitemap.xml
