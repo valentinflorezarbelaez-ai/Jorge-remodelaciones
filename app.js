@@ -402,14 +402,20 @@ function initFloatingWhatsApp() {
 
 // Video Play Overlay Handler (Prowler & Globant style interactive cards)
 document.addEventListener('DOMContentLoaded', () => {
+    let currentBgmTrack = null;
+
     document.querySelectorAll('.video-card').forEach(card => {
         const wrapper = card.querySelector('.video-wrapper');
         const video = card.querySelector('video');
         if (!wrapper || !video) return;
 
+        // Force native video element to remain completely silent
+        video.muted = true;
+        video.volume = 0;
+
         card.addEventListener('click', (e) => {
             if (!wrapper.classList.contains('is-playing')) {
-                // Pause any other playing videos
+                // Pause any other playing videos and their music
                 document.querySelectorAll('.video-wrapper.is-playing').forEach(otherWrapper => {
                     const otherVid = otherWrapper.querySelector('video');
                     if (otherVid) {
@@ -419,8 +425,43 @@ document.addEventListener('DOMContentLoaded', () => {
                     otherWrapper.classList.remove('is-playing');
                 });
 
+                if (currentBgmTrack) {
+                    currentBgmTrack.pause();
+                    currentBgmTrack.currentTime = 0;
+                    currentBgmTrack = null;
+                }
+
                 wrapper.classList.add('is-playing');
                 video.style.display = 'block';
+                video.muted = true; // guarantee zero noise from cellphone mic
+
+                // Start synchronized high-fidelity background music
+                const audioSrc = video.getAttribute('data-audio');
+                if (audioSrc) {
+                    currentBgmTrack = new Audio(audioSrc);
+                    currentBgmTrack.volume = 0.75;
+                    currentBgmTrack.loop = true;
+                    currentBgmTrack.play().catch(() => {});
+
+                    // Synchronize video controls with audio
+                    video.onpause = () => {
+                        if (currentBgmTrack && !video.ended) {
+                            currentBgmTrack.pause();
+                        }
+                    };
+                    video.onplay = () => {
+                        if (currentBgmTrack) {
+                            currentBgmTrack.play().catch(() => {});
+                        }
+                    };
+                    video.onended = () => {
+                        if (currentBgmTrack) {
+                            currentBgmTrack.pause();
+                            currentBgmTrack.currentTime = 0;
+                        }
+                    };
+                }
+
                 video.play().catch(() => {});
             }
         });
