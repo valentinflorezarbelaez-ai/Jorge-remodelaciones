@@ -398,3 +398,31 @@ function initFloatingWhatsApp() {
 }
 
 
+
+
+// Video Play Overlay Handler (Prowler & Globant style interactive cards)
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.video-card').forEach(card => {
+        const wrapper = card.querySelector('.video-wrapper');
+        const video = card.querySelector('video');
+        if (!wrapper || !video) return;
+
+        card.addEventListener('click', (e) => {
+            if (!wrapper.classList.contains('is-playing')) {
+                // Pause any other playing videos
+                document.querySelectorAll('.video-wrapper.is-playing').forEach(otherWrapper => {
+                    const otherVid = otherWrapper.querySelector('video');
+                    if (otherVid) {
+                        otherVid.pause();
+                        otherVid.style.display = 'none';
+                    }
+                    otherWrapper.classList.remove('is-playing');
+                });
+
+                wrapper.classList.add('is-playing');
+                video.style.display = 'block';
+                video.play().catch(() => {});
+            }
+        });
+    });
+});
