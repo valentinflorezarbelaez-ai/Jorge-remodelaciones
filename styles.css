@@ -3253,3 +3253,73 @@ button:active,
 .video-wrapper.is-playing video {
     display: block !important;
 }
+
+
+/* ==========================================================================
+   AURA Architectural Luxury System (Apple / Qobuz / Tidal Gold Standard)
+   ========================================================================== */
+
+:root {
+  --aura-gold-luminous: #d4af37;
+  --aura-gold-champagne: #f3deab;
+  --aura-obsidian-depth: #090c10;
+  --aura-surface-glass: rgba(16, 22, 30, 0.76);
+  --aura-glass-border: rgba(212, 175, 55, 0.22);
+  --aura-glass-bevel: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  --aura-shadow-luxury: 0 24px 60px -12px rgba(0, 0, 0, 0.65);
+}
+
+body {
+  background-color: var(--aura-obsidian-depth) !important;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(0, 210, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(245, 166, 35, 0.09) 0%, transparent 50%),
+    radial-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px) !important;
+  background-attachment: fixed !important;
+}
+
+/* Luxury Frosted Glass Overhaul for Cards */
+.service-card,
+.project-card,
+.stat-card,
+.testimonial-card,
+.feature-card,
+.quote-card {
+  background: var(--aura-surface-glass) !important;
+  backdrop-filter: blur(28px) !important;
+  -webkit-backdrop-filter: blur(28px) !important;
+  border: 1px solid var(--aura-glass-border) !important;
+  box-shadow: var(--aura-shadow-luxury), var(--aura-glass-bevel) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.service-card:hover,
+.project-card:hover,
+.stat-card:hover,
+.testimonial-card:hover,
+.feature-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(212, 175, 55, 0.45) !important;
+  box-shadow: 0 28px 70px -12px rgba(212, 175, 55, 0.20), var(--aura-glass-bevel) !important;
+}
+
+/* Floating Pill Badges */
+.pill-badge,
+.hero-badge,
+.tag-badge {
+  border-radius: 9999px !important;
+  background: rgba(212, 175, 55, 0.12) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.30) !important;
+  color: var(--aura-gold-champagne) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Luminous Metallic Typography */
+.text-gold-luminous {
+  background: linear-gradient(135deg, #ffffff 15%, #f3deab 55%, #d4af37 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
