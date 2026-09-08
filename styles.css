@@ -3589,3 +3589,77 @@ header,
   -webkit-text-fill-color: transparent !important;
   font-weight: 800 !important;
 }
+
+
+/* ==========================================================================
+   AURA PORCELAIN MASTERCLASS • Luxury Rectified Kitchen Backsplash Enchape
+   ========================================================================== */
+
+/* Seamless Luxury Porcelain Canvas */
+body {
+  position: relative;
+  background-color: #07090C !important;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -5%, rgba(212, 175, 55, 0.16) 0%, transparent 60%),
+    radial-gradient(circle at 10% 25%, rgba(197, 160, 89, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 90% 45%, rgba(243, 222, 171, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(184, 134, 11, 0.09) 0%, transparent 55%) !important;
+  background-attachment: fixed !important;
+  color: #E2E8F0 !important;
+}
+
+/* Layer 1: Enchape de Porcelanato Gran Formato Sahara Noir / Calacatta Gold Slab */
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-image: url('assets/images/porcelain-slab-bg.jpg') !important;
+  background-size: 1100px auto !important;
+  background-repeat: repeat !important;
+  background-position: center top !important;
+  opacity: 0.22 !important;
+  pointer-events: none !important;
+  z-index: -2 !important;
+  filter: contrast(1.18) brightness(0.95) saturate(1.1) !important;
+}
+
+/* Layer 2: Juntas Rectificadas Milimétricas de Enchape Cerámico / Porcelanato (Grid 120x60 Proportions) */
+body::after {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-image: 
+    linear-gradient(to right, rgba(212, 175, 55, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 175, 55, 0.09) 1px, transparent 1px) !important;
+  background-size: 260px 130px !important;
+  opacity: 0.75 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;
+}
+
+/* Ensure sections allow the porcelain slab texture and grid to shine through smoothly */
+section,
+.soluciones-section,
+.video-showcase-section,
+.proceso-section,
+.contact-section,
+.flyer-showcase-section,
+.gallery-section,
+.hero,
+.main-content {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Subtle atmospheric lighting separator between major sections */
+.section-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.25) 50%, transparent 100%);
+  margin: 2rem 0;
+}
