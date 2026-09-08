@@ -21,7 +21,6 @@ function initParticles() {
     const canvas = document.getElementById('particles-canvas');
     if (!canvas) return;
 
-    // Respect prefers-reduced-motion for vestibular health
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         return;
     }
@@ -32,22 +31,19 @@ function initParticles() {
     let width = canvas.width = window.innerWidth;
     let height = canvas.height = window.innerHeight;
 
-    const particleCount = Math.min(Math.floor(width * 0.025), 32);
+    // Ultra-sparse, tranquil ambient dust motes
+    const particleCount = Math.min(Math.floor(width * 0.012), 16);
     const particles = [];
-    const colors = ['#FFFFFF', '#F5DEB3', '#E5C378', '#C5A059'];
-
-    let mouseX = width / 2;
-    let mouseY = height / 2;
+    const colors = ['#FFFFFF', '#F5DEB3', '#E5C378'];
 
     for (let i = 0; i < particleCount; i++) {
         particles.push({
             x: Math.random() * width,
             y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.22,
-            vy: (Math.random() - 0.5) * 0.22,
-            size: Math.random() * 1.6 + 0.8,
-            baseAlpha: Math.random() * 0.35 + 0.12,
-            alpha: Math.random() * 0.35 + 0.12,
+            vx: (Math.random() - 0.5) * 0.10, // Very slow, meditative drift
+            vy: (Math.random() - 0.5) * 0.10,
+            size: Math.random() * 1.2 + 0.6,
+            alpha: Math.random() * 0.12 + 0.04,
             color: colors[Math.floor(Math.random() * colors.length)]
         });
     }
@@ -57,46 +53,13 @@ function initParticles() {
         height = canvas.height = window.innerHeight;
     });
 
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    // On mobile devices, draw static stars once and do not run animation loop (prevents movement/jitter)
-    if (window.innerWidth < 768) {
-        ctx.clearRect(0, 0, width, height);
-        for (let i = 0; i < Math.min(particles.length, 18); i++) {
-            const p = particles[i];
-            ctx.save();
-            ctx.globalAlpha = 0.22;
-            ctx.fillStyle = p.color;
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.restore();
-        }
-        return;
-    }
+    if (window.innerWidth < 768) return; // Completely silent on mobile
 
     function animate() {
         ctx.clearRect(0, 0, width, height);
 
         for (let i = 0; i < particles.length; i++) {
             const p = particles[i];
-            const dx = mouseX - p.x;
-            const dy = mouseY - p.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-
-            // Subtle mouse avoidance / repulsion
-            if (dist < 150) {
-                const force = (1 - dist / 150) * 0.8;
-                p.x -= (dx / dist) * force * 1.2;
-                p.y -= (dy / dist) * force * 1.2;
-                p.alpha = Math.min(0.9, p.baseAlpha + (1 - dist / 150) * 0.5);
-            } else {
-                p.alpha += (p.baseAlpha - p.alpha) * 0.04;
-            }
-
             p.x += p.vx;
             p.y += p.vy;
 
@@ -112,24 +75,6 @@ function initParticles() {
             ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             ctx.fill();
             ctx.restore();
-
-            // Connect lines between nearby particles
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const lineDist = Math.hypot(p.x - p2.x, p.y - p2.y);
-
-                if (lineDist < 120) {
-                    ctx.save();
-                    ctx.globalAlpha = (1 - lineDist / 120) * 0.12;
-                    ctx.strokeStyle = p.color;
-                    ctx.lineWidth = 0.6;
-                    ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.stroke();
-                    ctx.restore();
-                }
-            }
         }
 
         requestAnimationFrame(animate);
@@ -486,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
    Spatial Dynamic Porcelain Lighting & Card Specular (Steve Jobs Apple Pro Standard)
    -------------------------------------------------------------------------- */
 function initSpatialSpotlight() {
-    if (window.innerWidth < 768) return; // Light on mobile, full spatial on desktop
+    if (window.innerWidth < 768) return;
 
     let targetX = 50;
     let targetY = 30;
@@ -498,12 +443,11 @@ function initSpatialSpotlight() {
         targetX = (e.clientX / window.innerWidth) * 100;
         targetY = (e.clientY / window.innerHeight) * 100;
 
-        // Micro-coordinates for cards within viewport proximity
-        const cards = document.querySelectorAll('.ba-slider-card, .video-card, .package-card, .unit-card, .advisor-card, .testimonial-card, .hero__media-wrapper');
+        const cards = document.querySelectorAll('.ba-slider-card, .video-card, .package-card, .unit-card, .advisor-card, .testimonial-card');
         cards.forEach(card => {
             const rect = card.getBoundingClientRect();
-            if (e.clientX >= rect.left - 80 && e.clientX <= rect.right + 80 &&
-                e.clientY >= rect.top - 80 && e.clientY <= rect.bottom + 80) {
+            if (e.clientX >= rect.left && e.clientX <= rect.right &&
+                e.clientY >= rect.top && e.clientY <= rect.bottom) {
                 const cardX = ((e.clientX - rect.left) / rect.width) * 100;
                 const cardY = ((e.clientY - rect.top) / rect.height) * 100;
                 card.style.setProperty('--card-mouse-x', cardX.toFixed(1) + '%');
@@ -515,6 +459,23 @@ function initSpatialSpotlight() {
             isTicking = true;
             requestAnimationFrame(updateLight);
         }
+    }, { passive: true });
+
+    function updateLight() {
+        // Silky, very smooth damping
+        currentX += (targetX - currentX) * 0.04;
+        currentY += (targetY - currentY) * 0.04;
+
+        document.documentElement.style.setProperty('--spotlight-x', currentX.toFixed(2) + '%');
+        document.documentElement.style.setProperty('--spotlight-y', currentY.toFixed(2) + '%');
+
+        if (Math.abs(targetX - currentX) > 0.03 || Math.abs(targetY - currentY) > 0.03) {
+            requestAnimationFrame(updateLight);
+        } else {
+            isTicking = false;
+        }
+    }
+}
     }, { passive: true });
 
     function updateLight() {
