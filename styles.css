@@ -1331,16 +1331,55 @@ header, main, footer {
     background: var(--bg-surface-elevated);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
-    padding: 1.25rem 0.75rem;
+    padding: 1.25rem 0.85rem;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.4rem;
+    justify-content: center;
+    gap: 0.75rem;
 }
 
-.unit-card__pin {
-    font-size: 1.2rem;
+.unit-card__logo-wrapper {
+    height: 56px;
+    width: 100%;
+    max-width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: var(--radius-md);
+    padding: 6px 12px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.unit-card:hover .unit-card__logo-wrapper {
+    background: #FFFFFF;
+    border-color: rgba(212, 175, 55, 0.45);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.18), inset 0 1px 0 #FFFFFF;
+    transform: translateY(-2px) scale(1.02);
+}
+
+.unit-card__logo {
+    max-height: 40px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.06));
+}
+
+.unit-card__logo--circle {
+    clip-path: circle(19px at 50% 50%);
+    border-radius: 50%;
+}
+
+.unit-card__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
 }
 
 .unit-card__name {
@@ -1352,7 +1391,7 @@ header, main, footer {
 .unit-card__location {
     font-family: var(--font-mono);
     font-size: 0.68rem;
-    color: #94A3B8;
+    color: #D4AF37;
     letter-spacing: 0.08em;
 }
 
