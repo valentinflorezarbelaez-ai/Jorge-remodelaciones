@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFloatingWhatsApp();
     initParticles();
     initMetricCounters();
+    initSpatialSpotlight();
 });
 
 /* --------------------------------------------------------------------------
@@ -479,3 +480,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+/* --------------------------------------------------------------------------
+   Spatial Dynamic Porcelain Lighting & Card Specular (Steve Jobs Apple Pro Standard)
+   -------------------------------------------------------------------------- */
+function initSpatialSpotlight() {
+    if (window.innerWidth < 768) return; // Light on mobile, full spatial on desktop
+
+    let targetX = 50;
+    let targetY = 30;
+    let currentX = 50;
+    let currentY = 30;
+    let isTicking = false;
+
+    window.addEventListener('mousemove', (e) => {
+        targetX = (e.clientX / window.innerWidth) * 100;
+        targetY = (e.clientY / window.innerHeight) * 100;
+
+        // Micro-coordinates for cards within viewport proximity
+        const cards = document.querySelectorAll('.ba-slider-card, .video-card, .package-card, .unit-card, .advisor-card, .testimonial-card, .hero__media-wrapper');
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            if (e.clientX >= rect.left - 80 && e.clientX <= rect.right + 80 &&
+                e.clientY >= rect.top - 80 && e.clientY <= rect.bottom + 80) {
+                const cardX = ((e.clientX - rect.left) / rect.width) * 100;
+                const cardY = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--card-mouse-x', cardX.toFixed(1) + '%');
+                card.style.setProperty('--card-mouse-y', cardY.toFixed(1) + '%');
+            }
+        });
+
+        if (!isTicking) {
+            isTicking = true;
+            requestAnimationFrame(updateLight);
+        }
+    }, { passive: true });
+
+    function updateLight() {
+        // Weighted organic easing
+        currentX += (targetX - currentX) * 0.075;
+        currentY += (targetY - currentY) * 0.075;
+
+        document.documentElement.style.setProperty('--spotlight-x', currentX.toFixed(2) + '%');
+        document.documentElement.style.setProperty('--spotlight-y', currentY.toFixed(2) + '%');
+
+        if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
+            requestAnimationFrame(updateLight);
+        } else {
+            isTicking = false;
+        }
+    }
+}

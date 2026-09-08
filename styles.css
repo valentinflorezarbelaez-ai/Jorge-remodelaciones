@@ -3663,3 +3663,172 @@ section,
   background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.25) 50%, transparent 100%);
   margin: 2rem 0;
 }
+
+
+/* ==========================================================================
+   STEVE JOBS PERFECTION STANDARD • Dynamic Porcelain Lighting & Elite Hierarchy
+   ========================================================================== */
+
+/* Dynamic Interactive Torchlight across the Porcelain Veins */
+body {
+  background-image: 
+    radial-gradient(circle 900px at var(--spotlight-x, 50%) var(--spotlight-y, 25%), rgba(212, 175, 55, 0.24) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(212, 175, 55, 0.16) 0%, transparent 65%),
+    radial-gradient(circle at 10% 25%, rgba(197, 160, 89, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 90% 45%, rgba(243, 222, 171, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(184, 134, 11, 0.09) 0%, transparent 55%) !important;
+}
+
+/* Card Interactive Specular Glow */
+.ba-slider-card,
+.video-card,
+.package-card,
+.unit-card,
+.process-card,
+.advisor-card,
+.gallery-card,
+.testimonial-card,
+.service-card,
+.hero__media-wrapper {
+  position: relative !important;
+}
+
+.ba-slider-card::before,
+.video-card::before,
+.package-card::before,
+.unit-card::before,
+.process-card::before,
+.advisor-card::before,
+.gallery-card::before,
+.testimonial-card::before,
+.hero__media-wrapper::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  border-radius: inherit !important;
+  background: radial-gradient(
+    550px circle at var(--card-mouse-x, 50%) var(--card-mouse-y, 50%),
+    rgba(212, 175, 55, 0.18) 0%,
+    transparent 55%
+  ) !important;
+  opacity: 0 !important;
+  transition: opacity 0.35s ease !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+.ba-slider-card:hover::before,
+.video-card:hover::before,
+.package-card:hover::before,
+.unit-card:hover::before,
+.process-card:hover::before,
+.advisor-card:hover::before,
+.gallery-card:hover::before,
+.testimonial-card:hover::before,
+.hero__media-wrapper:hover::before {
+  opacity: 1 !important;
+}
+
+/* Apple-style Keynote Announcement Pill */
+.hero__announcement-pill {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  padding: 0.35rem 1.1rem 0.35rem 0.4rem !important;
+  background: rgba(16, 22, 30, 0.75) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(212, 175, 55, 0.32) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  margin-bottom: 1.5rem !important;
+  text-decoration: none !important;
+}
+
+.hero__announcement-pill:hover {
+  border-color: rgba(212, 175, 55, 0.65) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+.hero__announcement-pill .pill-badge {
+  background: linear-gradient(135deg, #F3DEAB 0%, #D4AF37 100%) !important;
+  color: #07090C !important;
+  font-weight: 800 !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.08em !important;
+  padding: 0.25rem 0.75rem !important;
+  border-radius: 9999px !important;
+}
+
+.hero__announcement-pill .pill-text {
+  color: #F8FAFC !important;
+  font-size: 0.88rem !important;
+  font-weight: 500 !important;
+}
+
+.hero__announcement-pill .pill-arrow {
+  color: #F3DEAB !important;
+  font-weight: 700 !important;
+  transition: transform 0.25s ease !important;
+}
+
+.hero__announcement-pill:hover .pill-arrow {
+  transform: translateX(4px) !important;
+}
+
+/* Luminous Gold Catchphrase Typography */
+.text-gold {
+  background: linear-gradient(135deg, #FFFFFF 15%, #F5DEB3 40%, #D4AF37 75%, #9E782F 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 20px rgba(212, 175, 55, 0.35)) !important;
+}
+
+.slogan-architectural {
+  font-family: var(--font-mono) !important;
+  letter-spacing: 0.28em !important;
+  font-size: 0.76rem !important;
+  font-weight: 800 !important;
+  color: #F3DEAB !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+  padding: 0.35rem 1rem !important;
+  background: rgba(212, 175, 55, 0.08) !important;
+  border: 1px solid rgba(212, 175, 55, 0.25) !important;
+  border-radius: 9999px !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.slogan-architectural .dot {
+  color: #D4AF37 !important;
+  font-size: 0.9rem !important;
+}
+
+/* Animated Golden Shimmer Border on Featured Package (iPhone Pro Standard) */
+@keyframes borderSweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.package-card--featured {
+  border: 1px solid rgba(212, 175, 55, 0.6) !important;
+  box-shadow: 0 25px 70px -10px rgba(212, 175, 55, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Floating WhatsApp Concierge Button */
+.floating-whatsapp__btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.floating-whatsapp__btn:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 16px 45px rgba(37, 211, 102, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+}
