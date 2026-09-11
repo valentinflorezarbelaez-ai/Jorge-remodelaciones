@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     initMetricCounters();
     initSpatialSpotlight();
+    initAnchorSmoothScroll();
 });
 
 /* --------------------------------------------------------------------------
@@ -463,8 +464,8 @@ function initSpatialSpotlight() {
 
     function updateLight() {
         // Silky, very smooth damping
-        currentX += (targetX - currentX) * 0.04;
-        currentY += (targetY - currentY) * 0.04;
+        currentX += (targetX - currentX) * 0.05;
+        currentY += (targetY - currentY) * 0.05;
 
         document.documentElement.style.setProperty('--spotlight-x', currentX.toFixed(2) + '%');
         document.documentElement.style.setProperty('--spotlight-y', currentY.toFixed(2) + '%');
@@ -476,20 +477,47 @@ function initSpatialSpotlight() {
         }
     }
 }
-    }, { passive: true });
 
-    function updateLight() {
-        // Weighted organic easing
-        currentX += (targetX - currentX) * 0.075;
-        currentY += (targetY - currentY) * 0.075;
+/* --------------------------------------------------------------------------
+   Universal Smooth Scroll for Internal Anchor Links with Header Offset
+   -------------------------------------------------------------------------- */
+function initAnchorSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#' || href === '#main-content') return;
 
-        document.documentElement.style.setProperty('--spotlight-x', currentX.toFixed(2) + '%');
-        document.documentElement.style.setProperty('--spotlight-y', currentY.toFixed(2) + '%');
+            const targetId = href.substring(1);
+            const targetElement = document.getElementById(targetId);
 
-        if (Math.abs(targetX - currentX) > 0.05 || Math.abs(targetY - currentY) > 0.05) {
-            requestAnimationFrame(updateLight);
-        } else {
-            isTicking = false;
-        }
-    }
+            if (targetElement) {
+                e.preventDefault();
+
+                // If mobile nav is open, close it gently
+                const navToggle = document.getElementById('nav-toggle');
+                const mainNav = document.getElementById('main-nav');
+                if (mainNav && mainNav.classList.contains('is-open')) {
+                    navToggle?.setAttribute('aria-expanded', 'false');
+                    mainNav.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+
+                // Compute exact offset considering fixed header
+                const header = document.getElementById('header');
+                const topLegal = document.querySelector('.top-legal-bar');
+                const headerHeight = (header ? header.offsetHeight : 70) + (topLegal ? topLegal.offsetHeight : 0);
+                const elementTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const finalPosition = Math.max(0, elementTop - headerHeight - 16);
+
+                window.scrollTo({
+                    top: finalPosition,
+                    behavior: 'smooth'
+                });
+
+                if (history.pushState) {
+                    history.pushState(null, null, href);
+                }
+            }
+        });
+    });
 }
