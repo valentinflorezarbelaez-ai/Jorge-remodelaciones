@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier Técnico & Manual del Propietario | JV Construcciones • Reformas y Acabados</title>
+    <meta name="description" content="Guía técnica integral y especificaciones de acabados para propietarios de apartamentos en obra gris en el Oriente Antioqueño. Rionegro, La Ceja, El Carmen de Viboral.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Google+Sans+Code:wght@400;600&family=Google+Sans+Flex:opsz,wght@8..144,300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-obsidian: #0a0a0c;
+            --bg-card: rgba(20, 20, 26, 0.75);
+            --bg-card-hover: rgba(28, 28, 36, 0.85);
+            --border-subtle: rgba(212, 175, 55, 0.18);
+            --border-focus: rgba(212, 175, 55, 0.45);
+            --gold-champagne: #d4af37;
+            --gold-bright: #e6ca65;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --font-display: 'DM Serif Display', Georgia, serif;
+            --font-sans: 'Google Sans Flex', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'Google Sans Code', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 80px;
+        }
+
+        /* Top Bar */
+        .top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .brand-badge {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #1f1d16, #2d281a);
+            border: 1px solid var(--gold-champagne);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--gold-bright);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .brand-name {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-sub {
+            font-size: 11px;
+            color: var(--gold-champagne);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #c5a028, #dfbe4a);
+            color: #0a0a0c;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold-champagne);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Hero */
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(10, 10, 12, 0) 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 9999px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gold-bright);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(34px, 5vw, 54px);
+            font-weight: 400;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #f5f5f7, var(--gold-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 0 auto 32px;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        /* Nav Pills / Tabs */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.07);
+            color: #ffffff;
+        }
+
+        .tab-btn.active {
+            background: rgba(212, 175, 55, 0.12);
+            border-color: var(--gold-champagne);
+            color: var(--gold-bright);
+            font-weight: 600;
+        }
+
+        /* Section Layout */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 26px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--gold-champagne);
+            background: rgba(212, 175, 55, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        /* Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        /* Cards */
+        .spec-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            transition: all 0.2s;
+        }
+
+        .spec-item:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .spec-item-icon {
+            font-size: 24px;
+            margin-bottom: 14px;
+            display: inline-block;
+        }
+
+        .spec-item-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .spec-item-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .spec-badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .spec-mini-badge {
+            font-size: 11px;
+            font-family: var(--font-mono);
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--gold-champagne);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        /* Interactive Estimator */
+        .calc-box {
+            background: linear-gradient(145deg, rgba(20, 20, 26, 0.9), rgba(12, 12, 16, 0.95));
+            border: 1px solid var(--border-focus);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+        }
+
+        .calc-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 680px) {
+            .calc-controls {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .calc-field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calc-select, .calc-range {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: #111116;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 15px;
+            font-family: var(--font-sans);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .calc-select:focus {
+            border-color: var(--gold-champagne);
+        }
+
+        .calc-results {
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .calc-metric-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .calc-metric-val {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--gold-bright);
+            font-family: var(--font-mono);
+        }
+
+        /* Process Steps */
+        .step-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            position: relative;
+        }
+
+        .step-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            bottom: 20px;
+            width: 2px;
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .step-row {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        .step-num {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #15151c;
+            border: 2px solid var(--gold-champagne);
+            color: var(--gold-bright);
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .step-content {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 18px 24px;
+            flex-grow: 1;
+        }
+
+        .step-heading {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .step-text {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+        }
+
+        /* Unit Projects Grid */
+        .unit-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .unit-card:hover {
+            border-color: var(--gold-champagne);
+            background: rgba(212, 175, 55, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .unit-card-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .unit-card-loc {
+            font-size: 12px;
+            color: var(--gold-champagne);
+        }
+
+        /* Footer */
+        .footer-note {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 60px;
+        }
+
+        /* Print Mode for PDF Compilation */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                color: #111111 !important;
+                padding-bottom: 0;
+            }
+            .top-nav, .nav-actions, .tab-nav, .btn, .calc-controls {
+                display: none !important;
+            }
+            .section-card {
+                background: #ffffff !important;
+                border: 1px solid #e0e0e0 !important;
+                box-shadow: none !important;
+                color: #111111 !important;
+                page-break-inside: avoid;
+                margin-bottom: 24px;
+                padding: 20px;
+            }
+            .hero h1, .section-title, .spec-item-title, .step-heading, .unit-card-name {
+                color: #111111 !important;
+            }
+            .hero p, .spec-item-desc, .step-text, .text-secondary {
+                color: #444444 !important;
+            }
+            .calc-box, .calc-results {
+                background: #f8f9fa !important;
+                border: 1px solid #cccccc !important;
+            }
+            .calc-metric-val {
+                color: #997300 !important;
+            }
+            .step-num {
+                background: #ffffff !important;
+                border-color: #997300 !important;
+                color: #997300 !important;
+            }
+            .step-timeline::before {
+                background: #cccccc !important;
+            }
+            .spec-item, .step-content, .unit-card {
+                background: #ffffff !important;
+                border: 1px solid #e5e5e5 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <nav class="top-nav">
+        <a href="index.html" class="brand-logo">
+            <div class="brand-badge">JV</div>
+            <div>
+                <div class="brand-name">JV Construcciones</div>
+                <div class="brand-sub">Reformas y Acabados</div>
+            </div>
+        </a>
+        <div class="nav-actions">
+            <a href="index.html" class="btn btn-outline">← Volver al Sitio</a>
+            <a href="dossier.pdf" download="DOSSIER_TECNICO_JV_CONSTRUCCIONES.pdf" class="btn btn-primary" id="btn-pdf-download">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Descargar PDF
+            </a>
+            <a href="https://wa.me/573113964146?text=Hola%20JV%20Construcciones,%20le%C3%AD%20el%20Dossier%20T%C3%A9cnico%20y%20deseo%20agendar%20una%20visita%20de%20valoraci%C3%B3n." class="btn btn-primary" target="_blank" rel="noopener">
+                Agendar Visita
+            </a>
+        </div>
+    </nav>
+
+    <!-- Header Hero -->
+    <header class="hero container">
+        <div class="hero-pill">✦ DOCUMENTO DE INGENIERÍA & CALIDAD CONTRACTUAL ✦</div>
+        <h1>Dossier Técnico & <span>Manual del Propietario</span></h1>
+        <p>Especificaciones constructivas, tolerancias milimétricas, fases de intervención y protocolos de garantía para la transformación total de apartamentos en obra gris en el Oriente Antioqueño.</p>
+
+        <!-- Navigation Tabs -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="filterTab('todos')">Todo el Manual</button>
+            <button class="tab-btn" onclick="filterTab('fases')">Fases de Ejecución</button>
+            <button class="tab-btn" onclick="filterTab('especificaciones')">Especificaciones Constructivas</button>
+            <button class="tab-btn" onclick="filterTab('estimador')">Calculador de Inversión</button>
+            <button class="tab-btn" onclick="filterTab('garantia')">Garantía & Contrato</button>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- Section 1: Protocolo de Fases -->
+        <section class="section-card tab-content" id="sec-fases">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>1. Metodología de Ejecución por Etapas</span>
+                </h2>
+                <span class="section-tag">CRONOGRAMA DETERMINÍSTICO</span>
+            </div>
+            <div class="step-timeline">
+                <div class="step-row">
+                    <div class="step-num">01</div>
+                    <div class="step-content">
+                        <h3 class="step-heading">Diagnóstico Estructural & Replanteo con Láser</h3>
+                        <p class="step-text">Levantamiento tridimensional de muros, verificación de plomos, escuadras y revisión de redes provisionales entregadas por la constructora. Determinación exacta de puntos hidráulicos y eléctricos.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">02</div>
+                    <div class="step-content">
+                        <h3 class="step-heading">Redes Hidrosanitarias & Eléctricas Certificadas (RETIE)</h3>
+                        <p class="step-text">Instalación y reubicación de tuberías sanitarias en PVC y redes hidráulicas termofusionadas o PEX. Cableado en cobre 100% libre de oxígeno con tubería conduit antichispas según normativa técnica nacional.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">03</div>
+                    <div class="step-content">
+                        <h3 class="step-heading">Revoques, Mampostería & Nivelación de Losas</h3>
+                        <p class="step-text">Aplicación de morteros estabilizados de alta adherencia para lograr plomo perfecto en muros de ladrillo limpio o concreto. Nivelación milimétrica de pisos previa al enchape.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">04</div>
+                    <div class="step-content">
+                        <h3 class="step-heading">Enchapes en Porcelanato de Gran Formato & Nichos Empotrados</h3>
+                        <p class="step-text">Colocación con adhesivos de polímeros flexibles (C2TES1) y sistema de nivelación por cuñas autonivelantes. Cortes a 45° en esquinas, nichos iluminados en ducha y boquillado epóxico antihongos.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">05</div>
+                    <div class="step-content">
+                        <h3 class="step-heading">Cielos Rasos en Drywall & Diseño Lumínico Cálido (3000K)</h3>
+                        <p class="step-text">Estructura suspendida en acero galvanizado calibre comercial. Cajillos perimetrales para iluminación LED indirecta, ojos de buey dirigibles de alta reproducción cromática (CRI > 90) y aislamiento acústico.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">06</div>
+                    <div class="step-content">
+                        <h3 class="step-heading">Carpintería Arquitectónica a Medida & Mesones de Lujo</h3>
+                        <p class="step-text">Mobiliario de cocina, clósets y vestieres en melamina RH (resistente a humedad) de 15 y 18 mm. Rieles telescópicos de extensión total, bisagras soft-close y mesones en cuarzo Calacatta o granito natural sellado.</p>
+                    </div>
+                </div>
+                <div class="step-row">
+                    <div class="step-num">07</div>
+                    <div class="step-content">
+                        <h3 class="step-heading">Pintura Tipo 1, Vidriería Templada & Entrega con Acta</h3>
+                        <p class="step-text">Masillado con estuco plástico pulido a grano cero y pintura lavable antihongos. Puertas de baño en vidrio templado de 8 mm con herrajes en acero inoxidable 304. Limpieza profunda y acta de entrega formal.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Especificaciones de Materiales -->
+        <section class="section-card tab-content" id="sec-especificaciones">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>2. Especificaciones Constructivas & Marcas</span>
+                </h2>
+                <span class="section-tag">ESTÁNDAR PREMIUM</span>
+            </div>
+            <div class="grid-3">
+                <div class="spec-item">
+                    <div class="spec-item-icon">🏛️</div>
+                    <h3 class="spec-item-title">Pisos & Revestimientos</h3>
+                    <p class="spec-item-desc">Porcelanato rectificado de gran formato (60x120 cm o 80x160 cm) con absorción de agua menor al 0.5%.</p>
+                    <div class="spec-badge-list">
+                        <span class="spec-mini-badge">Corona</span>
+                        <span class="spec-mini-badge">Altea</span>
+                        <span class="spec-mini-badge">Pegacor Flex</span>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-item-icon">🍳</div>
+                    <h3 class="spec-item-title">Mesones & Superficies</h3>
+                    <p class="spec-item-desc">Cuarzo artificial no poroso antimanchas o granitos naturales importados con sellador hidrófugo de poro cerrado.</p>
+                    <div class="spec-badge-list">
+                        <span class="spec-mini-badge">Silestone</span>
+                        <span class="spec-mini-badge">Cuarzo Blanco</span>
+                        <span class="spec-mini-badge">Granito San Gabriel</span>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-item-icon">🚪</div>
+                    <h3 class="spec-item-title">Carpintería RH</h3>
+                    <p class="spec-item-desc">Tableros hidrófugos resistentes a la humedad ambiental del Oriente Antioqueño, cantos rígidos en PVC pegados con poliuretano.</p>
+                    <div class="spec-badge-list">
+                        <span class="spec-mini-badge">Pelíkano RH</span>
+                        <span class="spec-mini-badge">Arauco</span>
+                        <span class="spec-mini-badge">Cierre Suave</span>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-item-icon">💡</div>
+                    <h3 class="spec-item-title">Electricidad & Luz</h3>
+                    <p class="spec-item-desc">Tiras LED COB de tono cálido 3000K continuo sin puntos visibles, breakers y cajas de distribución certificadas.</p>
+                    <div class="spec-badge-list">
+                        <span class="spec-mini-badge">RETIE Cert.</span>
+                        <span class="spec-mini-badge">Schneider</span>
+                        <span class="spec-mini-badge">Legrand</span>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-item-icon">🚿</div>
+                    <h3 class="spec-item-title">Grifería & Sanitarios</h3>
+                    <p class="spec-item-desc">Griferías monomando en acabado negro mate o níquel cepillado de bajo consumo y sanitarios de doble descarga.</p>
+                    <div class="spec-badge-list">
+                        <span class="spec-mini-badge">Grival</span>
+                        <span class="spec-mini-badge">Corona Eco</span>
+                        <span class="spec-mini-badge">Acero 304</span>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-item-icon">🎨</div>
+                    <h3 class="spec-item-title">Pintura & Cielos</h3>
+                    <p class="spec-item-desc">Estuco plástico con velo de fibra en uniones para evitar fisuras por dilatación térmica, pintura lavable tipo 1 antibacterial.</p>
+                    <div class="spec-badge-list">
+                        <span class="spec-mini-badge">Pintuco Viniltex</span>
+                        <span class="spec-mini-badge">Drywall Gyplac</span>
+                        <span class="spec-mini-badge">Grano Cero</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Calculador de Inversión y Cronograma -->
+        <section class="section-card tab-content" id="sec-estimador">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>3. Calculador Interactivo de Inversión & Cronograma</span>
+                </h2>
+                <span class="section-tag">ORIENTACIÓN EN TIEMPO REAL</span>
+            </div>
+            <div class="calc-box">
+                <div class="calc-controls">
+                    <div class="calc-field">
+                        <label for="calc-area">Área del Apartamento (m²): <span id="area-val" style="color:var(--gold-bright)">60 m²</span></label>
+                        <input type="range" id="calc-area" class="calc-range" min="35" max="130" value="60" step="5" oninput="updateEstimate()">
+                    </div>
+                    <div class="calc-field">
+                        <label for="calc-plan">Paquete de Acabados</label>
+                        <select id="calc-plan" class="calc-select" onchange="updateEstimate()">
+                            <option value="integral">Integral Armonía (Pisos, Cocina, Baños, Techos)</option>
+                            <option value="luxury" selected>Quiet Luxury Signature (Cuarzo, Porcelanato 120cm, Nichos LED)</option>
+                            <option value="premium">Custom High-End (Diseño Arquitectónico Completo)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="calc-results">
+                    <div>
+                        <div class="calc-metric-label">Tiempo Estimado</div>
+                        <div class="calc-metric-val" id="res-time">5 - 6 sem</div>
+                    </div>
+                    <div>
+                        <div class="calc-metric-label">Garantía Escrita</div>
+                        <div class="calc-metric-val">12 Meses</div>
+                    </div>
+                    <div>
+                        <div class="calc-metric-label">Supervisión en Sitio</div>
+                        <div class="calc-metric-val">Diaria</div>
+                    </div>
+                    <div>
+                        <div class="calc-metric-label">Visita Técnica</div>
+                        <div class="calc-metric-val" style="font-size:20px; color:#ffffff;">Sin Costo</div>
+                    </div>
+                </div>
+                <div style="text-align:center; margin-top:24px;">
+                    <a href="#" id="calc-wa-link" class="btn btn-primary" target="_blank" rel="noopener">
+                        Solicitar Cotización Detallada para este Metraje vía WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Unidades Residenciales con Experiencia -->
+        <section class="section-card tab-content" id="sec-unidades">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>4. Unidades Residenciales en el Oriente Antioqueño</span>
+                </h2>
+                <span class="section-tag">EXPERIENCIA COMPROBADA</span>
+            </div>
+            <p style="color:var(--text-secondary); margin-bottom:20px; font-size:14px;">Conocemos a fondo las normativas de copropiedad, horarios de obra y especificaciones técnicas de los principales proyectos inmobiliarios de la región:</p>
+            <div class="grid-3">
+                <div class="unit-card">
+                    <div class="unit-card-name">Bosque Ceibal</div>
+                    <div class="unit-card-loc">Rionegro, Antioquia</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-card-name">Bosque Robledal</div>
+                    <div class="unit-card-loc">Rionegro, Antioquia</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-card-name">Altos de Santa María</div>
+                    <div class="unit-card-loc">El Carmen de Viboral</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-card-name">Pinares Residencial</div>
+                    <div class="unit-card-loc">La Ceja, Antioquia</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-card-name">Origen Lago</div>
+                    <div class="unit-card-loc">Rionegro, Antioquia</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-card-name">Nativa Condominio</div>
+                    <div class="unit-card-loc">Rionegro, Antioquia</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-card-name">Cerros del Carmen</div>
+                    <div class="unit-card-loc">El Carmen de Viboral</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-card-name">Torres de San Juan</div>
+                    <div class="unit-card-loc">Marinilla / Rionegro</div>
+                </div>
+                <div class="unit-card">
+                    <div class="unit-card-name">Terracina Park</div>
+                    <div class="unit-card-loc">Oriente Antioqueño</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Garantía & Blindaje Contractual -->
+        <section class="section-card tab-content" id="sec-garantia">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span>5. Respaldo Legal & Política de Garantía</span>
+                </h2>
+                <span class="section-tag">TRANSPARENCIA TOTAL</span>
+            </div>
+            <div class="grid-2">
+                <div class="spec-item">
+                    <div class="spec-item-icon">📋</div>
+                    <h3 class="spec-item-title">Contrato de Obra Formal</h3>
+                    <p class="spec-item-desc">Firmamos contrato con póliza de seriedad, cuadro de ítems desglosado al centavo, cronograma de hitos vinculante y pagos contra avance supervisado.</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-item-icon">🛡️</div>
+                    <h3 class="spec-item-title">Garantía Escrita de 12 Meses</h3>
+                    <p class="spec-item-desc">Cobertura directa ante desprendimientos, filtraciones, fallas en herrajes o asentamientos normales. Nuestro equipo atiende cualquier novedad técnica de inmediato.</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-item-icon">⚖️</div>
+                    <h3 class="spec-item-title">Cero Sobrecostos Ocultos</h3>
+                    <p class="spec-item-desc">El presupuesto acordado en el contrato es el valor final. No hay cobros sorpresa ni modificaciones unilaterales sin autorización expresa del propietario.</p>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-item-icon">🤝</div>
+                    <h3 class="spec-item-title">Atención Directa con el Líder de Obra</h3>
+                    <p class="spec-item-desc">Sin intermediarios burocráticos. Reportes fotográficos y de video semanales directos por WhatsApp con Jorge, Fundador y Líder de Proyectos.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-note">
+            <p><strong>JV Construcciones • Reformas y Acabados</strong> | Rionegro, La Ceja, El Carmen de Viboral, Antioquia.</p>
+            <p style="margin-top:4px;">Atención Telefónica y WhatsApp: <strong>+57 311 396 4146</strong> | Web: <a href="https://jvconstrucciones.vercel.app" style="color:var(--gold-champagne);">jvconstrucciones.vercel.app</a></p>
+            <p style="margin-top:8px; font-size:11px; opacity:0.6;">© 2026 JV Construcciones. Todos los derechos reservados.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        function filterTab(tabName) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const sections = document.querySelectorAll('.tab-content');
+            if (tabName === 'todos') {
+                sections.forEach(s => s.style.display = 'block');
+            } else if (tabName === 'fases') {
+                sections.forEach(s => s.style.display = 'none');
+                document.getElementById('sec-fases').style.display = 'block';
+            } else if (tabName === 'especificaciones') {
+                sections.forEach(s => s.style.display = 'none');
+                document.getElementById('sec-especificaciones').style.display = 'block';
+            } else if (tabName === 'estimador') {
+                sections.forEach(s => s.style.display = 'none');
+                document.getElementById('sec-estimador').style.display = 'block';
+            } else if (tabName === 'garantia') {
+                sections.forEach(s => s.style.display = 'none');
+                document.getElementById('sec-garantia').style.display = 'block';
+                document.getElementById('sec-unidades').style.display = 'block';
+            }
+        }
+
+        function updateEstimate() {
+            const area = parseInt(document.getElementById('calc-area').value, 10);
+            const plan = document.getElementById('calc-plan').value;
+            document.getElementById('area-val').innerText = area + ' m²';
+
+            let weeks = '4 - 5 sem';
+            if (area <= 50) weeks = '3 - 4 sem';
+            else if (area <= 75) weeks = '5 - 6 sem';
+            else if (area <= 95) weeks = '6 - 7 sem';
+            else weeks = '7 - 9 sem';
+
+            document.getElementById('res-time').innerText = weeks;
+
+            const planNames = {
+                integral: 'Integral Armonía',
+                luxury: 'Quiet Luxury Signature',
+                premium: 'Custom High-End'
+            };
+            const planText = planNames[plan] || 'Personalizado';
+
+            const waUrl = 'https://wa.me/573113964146?text=' + encodeURIComponent(
+                'Hola JV Construcciones, revisé el Dossier Técnico. Tengo un apartamento de ' + area + ' m² en obra gris y me interesa el paquete ' + planText + '. Deseo agendar una visita técnica de valoración sin costo.'
+            );
+            document.getElementById('calc-wa-link').href = waUrl;
+        }
+
+        // Initialize on load
+        updateEstimate();
+    </script>
+</body>
+</html>
