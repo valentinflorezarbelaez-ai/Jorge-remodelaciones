@@ -745,7 +745,7 @@
                         <input type="range" id="calc-area" class="calc-range" min="35" max="130" value="60" step="5" oninput="updateEstimate()">
                     </div>
                     <div class="calc-field">
-                        <label for="calc-plan">Paquete de Acabados</label>
+                        <label for="calc-plan">Nivel de Acabado / Alcance</label>
                         <select id="calc-plan" class="calc-select" onchange="updateEstimate()">
                             <option value="integral">Integral Armonía (Pisos, Cocina, Baños, Techos)</option>
                             <option value="luxury" selected>Quiet Luxury Signature (Cuarzo, Porcelanato 120cm, Nichos LED)</option>
@@ -914,7 +914,7 @@
             const planText = planNames[plan] || 'Personalizado';
 
             const waUrl = 'https://wa.me/573113964146?text=' + encodeURIComponent(
-                'Hola JV Construcciones, revisé el Dossier Técnico. Tengo un apartamento de ' + area + ' m² en obra gris y me interesa el paquete ' + planText + '. Deseo agendar una visita técnica de valoración sin costo.'
+                'Hola JV Construcciones, revisé el Dossier Técnico. Tengo un apartamento de ' + area + ' m² en obra gris y me interesa la cotización para alcance ' + planText + '. Deseo agendar una visita técnica de valoración sin costo.'
             );
             document.getElementById('calc-wa-link').href = waUrl;
         }
